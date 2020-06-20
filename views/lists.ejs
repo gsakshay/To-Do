@@ -12,11 +12,13 @@
     </div>
 
     <div class="box">
-        <% newTask.map(task=>{ %>
-        <div class="item">
-            <input type="checkbox">    
-            <p><%= task %></p>
-        </div>
+        <% newTask.forEach(task=>{ %>
+        <form action="/delete" method="POST">  
+            <div class="item">
+                <input type="checkbox" name="checkbox"  onChange="this.form.submit()" value="<%= task._id %>" >    
+                <p><%= task.todo %></p>
+            </div>
+        </form>
             <% }) %>
     
     <form  class="item" action="/" method="POST">
